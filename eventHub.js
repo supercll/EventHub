@@ -18,6 +18,14 @@ class EventHub {
             this.events[eventName][index] = null;
         }
     }
+    once(eventName, onceFn) {
+        this.events[eventName] = this.events[eventName].filter(fn => {
+            if (fn === onceFn) {
+                fn();
+            }
+            return fn !== onceFn;
+        });
+    }
 }
 
 module.exports = {

@@ -22,4 +22,9 @@ e.on("test", fn3);
 e.on("test", fn4);
 
 e.emit("test");
+console.log("-------------------");
+e.emit("test");
+console.log("-------------------");
+e.once("test", fn3);
+console.log("-------------------");
 e.emit("test");
