@@ -1,6 +1,9 @@
 # EventHub
 a simple eventhub for vue
 
+# 使用方法
+见test.js文件
+
 # 存在问题：执行off产生数组塌陷
 因为每次都是使用splice来切割数组的，所以off之后的事件直接消失，后面的事件就往前补空缺，使得下标index改变
 ```
