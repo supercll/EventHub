@@ -12,6 +12,10 @@ class EventHub {
         this.events[eventName].forEach(fn => fn());
     }
     off(eventName, fn) {
+        const index = this.events[eventName].indexOf(fn);
+        if (index >= 0) {
+            this.events[eventName].splice(index, 1);
+        }
     }
 }
 
