@@ -9,6 +9,7 @@ class EventHub {
         this.events[eventName].push(fn);
     }
     emit(eventName) {
+        this.events[eventName].forEach(fn => fn());
     }
     off(eventName, fn) {
     }
