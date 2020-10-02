@@ -1,6 +1,7 @@
 # EventHub
 a simple eventhub for vue
-存在问题：执行off产生数组塌陷
+
+# 存在问题：执行off产生数组塌陷
 因为每次都是使用splice来切割数组的，所以off之后的事件直接消失，后面的事件就往前补空缺，使得下标index改变
 ```
 const eventHub = new EventHub();
@@ -36,6 +37,6 @@ eventHub.emit("init");
 console.log("第二次执行事件");
 eventHub.emit("init");
 ```
-解决办法
+# 解决办法
 如果有off取消事件，就先将off的事件指向null
 在下一次emit触发事件的时候再重构事件数组
