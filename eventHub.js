@@ -9,12 +9,13 @@ class EventHub {
         this.events[eventName].push(fn);
     }
     emit(eventName) {
+        this.events[eventName] = this.events[eventName].filter(fn => fn != null);
         this.events[eventName].forEach(fn => fn());
     }
     off(eventName, fn) {
         const index = this.events[eventName].indexOf(fn);
         if (index >= 0) {
-            this.events[eventName].splice(index, 1);
+            this.events[eventName][index] = null;
         }
     }
 }
